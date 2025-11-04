@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yukiwhite: #fffcf0;
+  --color-darkcoal: #1A1612;
+
+  --color-eggshell: #F0EAD6;
+  --color-warmblack: #1C1814;
+  --color-charcoal: #221E1A;
+  --color-browncoal: #2D2420;
+}
