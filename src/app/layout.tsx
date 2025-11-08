@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Dela_Gothic_One, Zen_Kaku_Gothic_New } from 'next/font/google'
-import Link from "next/link";
 
 const delaGothicOne = Dela_Gothic_One({
   weight: ['400']
@@ -21,11 +20,6 @@ export default function RootLayout({
       className={zenKaku.className}
     >
       <body className="bg-darkcoal text-yukiwhite">
-        <nav className="flex flex-row content-center justify-end h-16">
-          <Link className="basis-32" href="/">stuart yukinaga</Link>
-          <Link className="basis-32" href="/about">About</Link>
-          <Link className="basis-32" href="/works">Works</Link>
-        </nav>
         {children}
       </body>
     </html>
