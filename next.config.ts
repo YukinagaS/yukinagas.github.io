@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   distDir: 'out',
   basePath: '/yukinaga-portfolio',
   assetPrefix: '/yukinaga-portfolio',
+  images: {
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;
