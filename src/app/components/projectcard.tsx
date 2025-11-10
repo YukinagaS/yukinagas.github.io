@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import nextConfig from '../../../next.config'
 
 interface ProjectCardProps {
   id: string,
@@ -21,7 +22,7 @@ export default function ProjectCard({id, title, description, project_link, image
       <div className="flex flex-col md:flex-row rounded hover:bg-charcoal">
         <div className="relative w-36 h-36 flex-shrink-0">
           <Image
-            src={image_source}
+            src={`${nextConfig.basePath}${image_source}`}
             alt={`Screenshot of ${title}`}
             fill
             className="object-cover rounded"
