@@ -11,5 +11,18 @@
       "Typescript",
       "Tailwind"
     ]
+  },
+  {
+    "id": "P0002",
+    "title": "GSAP Catalog/Lab",
+    "description": "A spot to experiment with and catalog GSAP animations.",
+    "project_link": "https://yukinagas.github.io/gsap-puyo",
+    "image_source": "/20251122_gsappuyo.png",
+    "tech": [
+      "NextJS",
+      "React",
+      "Typescript",
+      "Tailwind"
+    ]
   }
 ]
