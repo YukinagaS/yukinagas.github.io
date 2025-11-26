@@ -13,14 +13,14 @@ interface ProjectCardProps {
 
 export default function ProjectCard({id, title, description, project_link, image_source, tech}: ProjectCardProps) {
   return (
-    <div className="flex flex-col md:flex-row rounded hover:bg-charcoal">
+    <div className="flex flex-row rounded">
       <Link
         href={project_link}
         target="blank"
         rel="noopener noreferrer"
         aria-label={`Link to ${title} project page`}
       >
-        <div className="relative w-36 h-36 flex-shrink-0">
+        <div className="relative w-30 h-30 flex-shrink-0">
           <Image
             src={`${nextConfig.basePath}${image_source}`}
             alt={`Screenshot of ${title}`}
@@ -30,8 +30,8 @@ export default function ProjectCard({id, title, description, project_link, image
         </div>
       </Link>
 
-      <div className="pt-2 md:pl-4 md:pt-0">
-          <h3 className="text-xl font-bold text-yukiwhite">{title}</h3>
+      <div className="pl-3">
+        <p className="text-2xl font-bold -mt-1">{title}</p>
         <p className="font-light">{description}</p>
       </div>
     </div>

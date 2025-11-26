@@ -1,13 +1,22 @@
 import "./globals.css";
-import { Dela_Gothic_One, Zen_Kaku_Gothic_New } from 'next/font/google'
+import { Zen_Kaku_Gothic_Antique, Gochi_Hand } from 'next/font/google'
 
-const delaGothicOne = Dela_Gothic_One({
-  weight: ['400']
+const zenKaku = Zen_Kaku_Gothic_Antique({
+  weight: ["300", "400", "500", "700", "900"],
+  variable: '--font-zenkaku',
+  display: 'swap',
 })
 
-const zenKaku = Zen_Kaku_Gothic_New({
-  weight: ["400", "300", "500", "700", "900"]
+const gochiHand = Gochi_Hand({
+  weight: ["400"],
+  variable: '--font-gochihand',
+  display: 'swap',
 })
+
+export const metadata = {
+  title: '雪永スチュアート',
+  description: 'ポートフォリオサイト'
+}
 
 export default function RootLayout({
   children,
@@ -15,15 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={zenKaku.className}
-    >
-      <body className="min-h-screen w-screen bg-darkcoal text-yukibody">
-        <div className="min-h-screen max-w-5xl mx-auto flex flex-col">
-          {children}
-          <footer>
-            <p className="h-8 font-light text-xs text-center">© Yukinaga Heavy Industries, Inc.</p>
+    <html lang="jp" className={`${zenKaku.variable} ${gochiHand.variable}`}>
+      <body className=" bg-neutral-dk text-neutral-lt font-zenkaku">
+        <div className="min-h-screen flex flex-col">
+          <main className="flex-1">
+            {children}
+          </main>
+          <footer className="py-3 font-light bg-neutral-xdk text-xs text-center">
+            <p>© Yukinaga Heavy Industries, Inc.</p>
           </footer>
         </div>
       </body>

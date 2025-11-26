@@ -8,7 +8,7 @@ interface BlogSectionProps {
 export default function BlogSection({ allPostsData }: BlogSectionProps) {
   return (
     <section className="flex flex-col gap-4 mb-8">
-      <h2 className="text-2xl font-bold text-yukiwhite">Weblog</h2>
+      <h2 className="text-2xl font-bold">Weblog</h2>
       <ul>
         {allPostsData.map(({ id, date, title}) => (
           <li key={id}>
