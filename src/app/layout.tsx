@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="jp" className={`${zenKaku.variable} ${gochiHand.variable}`}>
       <body className=" bg-neutral-dk text-neutral-lt font-zenkaku">
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen w-full mx-auto flex flex-col sm:w-md">
           <main className="flex-1">
             {children}
           </main>
