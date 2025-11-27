@@ -15,7 +15,7 @@ const gochiHand = Gochi_Hand({
 
 export const metadata = {
   title: 'stuart.tokyo',
-  description: 'ポートフォリオサイト'
+  description: '雪永スチュアートのポートフォリオサイト'
 }
 
 export default function RootLayout({
