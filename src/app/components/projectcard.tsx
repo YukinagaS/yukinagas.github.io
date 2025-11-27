@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({id, title, description, project_link, image_source, tech}: ProjectCardProps) {
   return (
-    <div className="flex flex-row rounded">
+    <div className="flex flex-row rounded-lg shadow-lg/45">
       <Link
         href={project_link}
         target="blank"
@@ -25,7 +25,7 @@ export default function ProjectCard({id, title, description, project_link, image
             src={`${nextConfig.basePath}${image_source}`}
             alt={`Screenshot of ${title}`}
             fill
-            className="object-cover rounded"
+            className="object-cover rounded-tl-lg rounded-bl-lg"
           />
         </div>
       </Link>

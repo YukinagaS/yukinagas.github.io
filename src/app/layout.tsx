@@ -14,7 +14,7 @@ const gochiHand = Gochi_Hand({
 })
 
 export const metadata = {
-  title: '雪永スチュアート',
+  title: 'stuart.tokyo',
   description: 'ポートフォリオサイト'
 }
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="jp" className={`${zenKaku.variable} ${gochiHand.variable}`}>
       <body className=" bg-neutral-dk text-neutral-lt font-zenkaku">
-        <div className="min-h-screen w-full mx-auto flex flex-col sm:w-md">
+        <div className="min-h-screen w-full mx-auto flex flex-col sm:w-lg">
           <main className="flex-1">
             {children}
           </main>
