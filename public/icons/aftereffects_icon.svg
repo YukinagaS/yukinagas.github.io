@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+     viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Adobe After Effects CS6 icon</title>
+  <desc id="desc">Purple framed square with outlined Ae lettering.</desc>
+  <defs>
+    <linearGradient id="violet" x1="0" y1="0" x2="512" y2="512"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#CE9BFF"/>
+      <stop offset="1" stop-color="#BB76FF"/>
+    </linearGradient>
+    <radialGradient id="night" cx="50%" cy="49%" r="72%">
+      <stop offset="0" stop-color="#100356"/>
+      <stop offset="1" stop-color="#030112"/>
+    </radialGradient>
+  </defs>
+
+  <path fill="url(#violet)" fill-rule="evenodd"
+        d="M16 8H496V476H16ZM52 44V440H460V44Z"/>
+  <rect x="52" y="44" width="408" height="396"
+        fill="url(#night)" opacity=".85"/>
+
+  <!-- Outlined letter A. -->
+  <path fill="url(#violet)" fill-rule="evenodd" d="
+    M154 127H204Q207 127 208 131L270 331Q271 335 267 335H229
+    Q226 335 225 332L211 282H152L139 332Q138 335 135 335H102
+    Q98 335 99 331L150 154Q154 141 154 127ZM181 162L161 247H203Z"/>
+
+  <!-- Outlined lowercase e. -->
+  <path fill="url(#violet)" d="
+    M351 171C387 171 410 198 410 231C410 241 409 252 407 259
+    Q406 262 402 263C376 266 348 266 322 264
+    C323 290 337 303 361 303C375 303 387 300 398 295
+    Q402 293 402 298V320Q402 323 399 325C385 333 368 337 350 337
+    C307 337 281 309 281 256C281 205 310 171 351 171ZM348 201
+    C332 201 323 215 322 236C337 237 354 237 368 235
+    Q370 235 370 232C371 212 364 201 348 201Z"/>
+</svg>

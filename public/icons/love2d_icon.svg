@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024" viewBox="0 0 1024 1024"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Love app icon</title>
+  <desc id="desc">A white heart on a circular pink and blue background with a subtle shadow.</desc>
+
+  <!-- Subtle 12-pixel offset shadow from the original artwork. -->
+  <circle cx="512" cy="517" r="492" fill="#000000" opacity="0.30"/>
+
+  <!-- Circular two-color background. -->
+  <circle cx="512" cy="505" r="492" fill="#27AAE1"/>
+  <path d="M859 154
+           A492 492 0 0 0 512 13
+           A492 492 0 0 0 20 505
+           A492 492 0 0 0 230 905Z"
+        fill="#E74A99"/>
+
+  <!-- Heart. -->
+  <path fill="#FFFFFF" d="
+    M512 772
+    C490 759 249 620 249 471
+    C249 376 321 299 411 299
+    C454 299 489 322 512 358
+    C535 322 570 299 613 299
+    C703 299 776 376 776 471
+    C776 620 534 759 512 772Z"/>
+</svg>

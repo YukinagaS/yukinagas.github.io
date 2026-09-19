@@ -1,7 +1,9 @@
+import MainIndex from "@/component/main-index/MainIndex";
+
 export default function Home() {
   return (
-    <div>
-      <h1>stuart.tokyo</h1>
-    </div>
+    <main className="mx-auto flex-1 flex-col">
+      <MainIndex />
+    </main>
   );
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+     viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Adobe Premiere Pro CS6 icon</title>
+  <desc id="desc">Magenta framed square with outlined Pr lettering.</desc>
+  <defs>
+    <linearGradient id="magenta" x1="0" y1="0" x2="512" y2="512"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E886FF"/>
+      <stop offset="1" stop-color="#D346FF"/>
+    </linearGradient>
+    <linearGradient id="plum" x1="42" y1="34" x2="472" y2="452"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3D0354"/>
+      <stop offset="1" stop-color="#140019"/>
+    </linearGradient>
+  </defs>
+
+  <path fill="url(#magenta)" fill-rule="evenodd"
+        d="M16 8H496V476H16ZM52 44V440H460V44Z"/>
+  <rect x="52" y="44" width="408" height="396"
+        fill="url(#plum)" opacity=".87"/>
+
+  <!-- Outlined letter P. -->
+  <path fill="url(#magenta)" fill-rule="evenodd" d="
+    M136 127C153 126 172 126 189 126C240 126 269 151 269 197
+    C269 244 239 270 192 270C185 270 179 270 173 269V333
+    Q173 336 170 336H135Q132 336 132 333V131Q132 128 136 127ZM173 158V236
+    C179 237 184 238 191 238C214 238 227 223 227 198
+    C227 172 214 158 190 158Z"/>
+
+  <!-- Outlined lowercase r. -->
+  <path fill="url(#magenta)" d="
+    M293 176H322Q326 176 327 180L331 198
+    C343 182 359 173 376 173Q379 173 379 177V209Q379 213 375 213
+    C357 213 344 218 333 229V333Q333 336 330 336H294
+    Q291 336 291 333V201L289 180Q289 176 293 176Z"/>
+</svg>
