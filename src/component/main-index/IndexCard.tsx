@@ -4,22 +4,22 @@ import Image from "next/image";
 const cardThemes = {
   green: {
     frame: "outline-green-md hover:outline-green-lt focus-visible:outline-green-lt",
-    title: "text-green-lt",
+    title: "text-green-lt group-hover:text-neutral-lt group-focus-visible:text-neutral-lt",
     bg: "bg-green-dk"
   },
   pink: {
     frame: "outline-pink-md hover:outline-pink-lt focus-visible:outline-pink-lt",
-    title: "text-pink-lt",
+    title: "text-pink-lt group-hover:text-white group-focus-visible:text-white",
     bg: "bg-pink-dk"
   },
   purple: {
     frame: "outline-purple-md hover:outline-purple-lt focus-visible:outline-purple-lt",
-    title: "text-purple-lt",
+    title: "text-purple-lt group-hover:text-neutral-lt group-focus-visible:text-neutral-lt",
     bg: "bg-purple-dk"
   },
   blue: {
     frame: "outline-blue-md hover:outline-blue-lt focus-visible:outline-blue-lt",
-    title: "text-blue-lt",
+    title: "text-blue-lt group-hover:text-neutral-lt group-focus-visible:text-neutral-lt",
     bg: "bg-blue-dk"
   },
 } as const;
@@ -42,20 +42,25 @@ export default function IndexCard({
   const colors = cardThemes[theme];
 
   return (
-    <article className={`py-2 px-3 outline-1 ${colors.frame} ${colors.bg} rounded-lg group relative`}>
-      <div className="flex items-center gap-2">
-        <Image
-          src={icon}
-          width={25}
-          height={25}
-          alt={`${title} icon`}
-        />
-        <h3 className={`font-bold text-lg ${colors.title}`}>{title}</h3>
-      </div>
+    <article>
       <Link
-        className="after:absolute after:inset-0 after-content-['']"
+        className={`group block rounded-lg px-3 py-2 outline-1 transition-colors ${colors.frame} ${colors.bg}`}
         href={href}
-      />
+      >
+        <div className="flex items-center gap-2">
+          <span className="relative block size-[25px] shrink-0">
+            <Image
+              src={icon}
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="25px"
+              className="object-contain"
+            />
+          </span>
+          <h3 className={`font-bold text-lg ${colors.title}`}>{title}</h3>
+        </div>
+      </Link>
     </article>
   );
 }

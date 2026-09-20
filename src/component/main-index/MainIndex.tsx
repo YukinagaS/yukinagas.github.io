@@ -41,17 +41,19 @@ export default function MainIndex() {
   ];
 
   return (
-    <section className="py-2">
-      <h2 className="mb-4 text-center font-bold text-2xl">LIBRARIES</h2>
+    <div className="py-2">
+      <section className="my-4 pt-3 pb-8 px-8">
+        <h2 className="mb-4 font-bold text-2xl">LIBRARIES</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-6">
-        {
-          libraryArray.map((lib) => (
-            <IndexCard key={lib.icon} {...lib} />
-          ))
-        }
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-6">
+          {
+            libraryArray.map((lib) => (
+              <IndexCard key={lib.icon} {...lib} />
+            ))
+          }
+        </div>
 
-    </section>
+      </section>
+    </div>
   )
 }

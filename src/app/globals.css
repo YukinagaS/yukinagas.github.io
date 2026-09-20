@@ -44,3 +44,17 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+
+.liner-red {
+  @apply outline-1 outline-red-500
+}
+
+.liner-green {
+  @apply outline-1 outline-green-500
+}
+.liner-blue {
+  @apply outline-1 outline-blue-500
+}
+.liner-yellow {
+  @apply outline-1 outline-yellow-500
+}
