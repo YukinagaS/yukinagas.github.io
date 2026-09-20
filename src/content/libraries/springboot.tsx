@@ -1,23 +1,16 @@
-import { createLibrarySection } from "./createLibrarySection";
-import Overview, { metadata as overviewMetadata, } from "./springboot/overview.mdx";
+import { createLibraryEntry } from "./createLibrarySection";
+import AuthoringSpecimen, { metadata as authoringSpecimenMetadata, } from "./springboot/20260920-authoring-specimen.mdx";
 import { type LibraryDefinition } from "./types";
 
 export const springBootLibrary: LibraryDefinition = {
   slug: "springboot",
   title: "Spring Boot",
   summary: "Notes on building Java backends with Spring Boot framework.",
-  sections: [
-    createLibrarySection(
-      overviewMetadata,
-      <Overview />,
-      "springboot/overview.mdx",
+  entries: [
+    createLibraryEntry(
+      "20260920-authoring-specimen.mdx",
+      authoringSpecimenMetadata,
+      <AuthoringSpecimen />,
     ),
-    {
-      id: "project-notes",
-      title: "Project Notes",
-      content: (
-        <p>Project specific observations go here.</p>
-      ),
-    },
   ]
 }

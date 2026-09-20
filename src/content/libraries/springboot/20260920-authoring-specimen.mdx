@@ -1,0 +1,268 @@
+import Image from "next/image";
+
+export const metadata = {
+  title: "MDX Authoring Specimen",
+  subtitle: "A visual test of the supported MDX format and styling.",
+  tags: ["mdx", "frontend", "web-dev"],
+};
+
+This document establishes the baseline writing vocabulary for the library. It
+includes **strong text**, *emphasis*, `inline code`, an
+[external link](https://mdxjs.com/), and an
+<abbr title="Markdown JSX">MDX</abbr> abbreviation.
+
+The entry title, subtitle, date, and tags appear in the entry header, so the
+MDX body begins with a level-three heading.
+
+---
+
+### Headings and text hierarchy
+
+Body content should begin at level three because the entry title is rendered
+as a level-two heading by `LibraryEntry`.
+
+#### A level-four subsection
+
+Paragraphs should remain comfortable to read across several lines. The content
+column should constrain its line length without preventing tables, figures, or
+code samples from using the available width.
+
+Inline technical terms such as `generateStaticParams`, `npm run build`, and
+`LibraryEntryDefinition` should remain distinct without overwhelming the
+surrounding prose.
+
+### Japanese and Korean text
+
+This section checks font coverage, line height, punctuation, wrapping, and the
+alignment of Latin and CJK characters within the same content column.
+
+#### 日本語の表示
+
+<div lang="ja">
+  <p>
+    この電脳ライブラリは、学習の過程で得た知識を整理し、あとから検索しやすい形で
+    保存するための場所です。日本語の文章が自然な行間で表示され、句読点も正しく
+    折り返されることを確認します。
+  </p>
+
+  <p>
+    表示テスト：「かぎ括弧」、句読点、ひらがな、カタカナ、漢字、そして
+    <strong>強調された語句</strong>と<code>インラインコード</code>。
+  </p>
+
+  <p>
+    サイト名の<ruby>電脳<rp>（</rp><rt>でんのう</rt><rp>）</rp></ruby>には、
+    読み仮名を補助するルビを使用できます。
+  </p>
+</div>
+
+#### 한국어 표시
+
+<div lang="ko">
+  <p>
+    이 전뇌 라이브러리는 학습 과정에서 얻은 지식을 정리하고, 나중에 쉽게 찾아볼 수
+    있도록 보관하는 공간입니다. 한글 문장이 자연스러운 줄 간격과 단어 간격으로
+    표시되는지 확인합니다.
+  </p>
+
+  <p>
+    표시 테스트: 괄호, 쉼표, 마침표, 한글, 영문자, 숫자 123, 그리고
+    <strong>강조된 단어</strong>와 <code>인라인 코드</code>.
+  </p>
+</div>
+
+#### Mixed-script line
+
+The labels **電脳**, **학습 기록**, `LibraryEntry`, and **Spring Boot** should
+share a baseline cleanly when Japanese, Korean, and Latin text appear together.
+
+### Lists
+
+An unordered list:
+
+- Keep content close to the subject it documents.
+- Prefer ordinary Markdown when it expresses the structure clearly.
+- Introduce components only when they add meaningful behavior or semantics.
+  - Nested items should be visibly subordinate.
+  - Their indentation should remain clear on narrow screens.
+
+An ordered process:
+
+1. Write the entry.
+2. Validate its metadata.
+3. Derive its date and ID from the filename.
+4. Render it during the static build.
+5. Inspect it at desktop and mobile widths.
+
+### Quotation
+
+> A useful knowledge library should make writing easier than maintaining the
+> system that publishes it.
+
+A block quotation should be visually distinct from ordinary prose without
+looking like a warning or callout.
+
+### Callouts
+
+<aside data-callout="note" aria-label="Note">
+  <strong>Note:</strong> A note supplies useful context that is not essential
+  to completing the surrounding procedure.
+</aside>
+
+<aside data-callout="tip" aria-label="Tip">
+  <strong>Tip:</strong> Prefer a descriptive filename because its slug becomes
+  the entry’s permanent section identifier.
+</aside>
+
+<aside data-callout="warning" aria-label="Warning">
+  <strong>Warning:</strong> Renaming a published entry changes its anchor unless
+  the slug portion of the filename remains unchanged.
+</aside>
+
+<aside data-callout="important" aria-label="Important">
+  <strong>Important:</strong> Every entry must provide a title, subtitle, and
+  non-empty collection of tags.
+</aside>
+
+These callouts deliberately use native `aside` elements and `data-callout`
+attributes. They can be styled now and replaced by a reusable component later
+if that would improve the authoring experience.
+
+### Code
+
+A short inline expression looks like `const ready = true`.
+
+**File: `example.ts`**
+
+```ts
+type LibraryEntryMetadata = {
+  title: string;
+  subtitle: string;
+  tags: string[];
+};
+
+export function describeEntry(
+  metadata: LibraryEntryMetadata,
+): string {
+  return `${metadata.title}: ${metadata.subtitle}`;
+}
+```
+
+The code block should support:
+
+- A visible language or filename label
+- Horizontal scrolling for long lines
+- Preserved indentation
+- Syntax highlighting
+- An eventual copy button
+
+**Terminal example**
+
+```shell
+npm run lint
+npm run build
+```
+
+### Tabular information
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Source</th>
+      <th scope="col">Responsibility</th>
+      <th scope="col">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Filename</td>
+      <td>Date and stable ID</td>
+      <td><code>20260920-authoring-specimen.mdx</code></td>
+    </tr>
+    <tr>
+      <td>MDX metadata</td>
+      <td>Title, subtitle, and tags</td>
+      <td><code>metadata.tags</code></td>
+    </tr>
+    <tr>
+      <td>Library configuration</td>
+      <td>Library identity and visual theme</td>
+      <td><code>library.json</code></td>
+    </tr>
+  </tbody>
+</table>
+
+The table should remain readable on small screens. If it cannot fit, its own
+region should scroll horizontally rather than widening the entire page.
+
+### Definitions
+
+<dl>
+  <dt><code>entry</code></dt>
+  <dd>
+    One dated MDX document rendered as part of a Library’s continuous content
+    stream.
+  </dd>
+
+  <dt><code>library</code></dt>
+  <dd>
+    A themed collection of related entries with its own table of contents.
+  </dd>
+
+  <dt><code>manifest</code></dt>
+  <dd>
+    Generated TypeScript that provides statically discoverable imports for the
+    Next.js build.
+  </dd>
+</dl>
+
+### Expandable details
+
+<details>
+  <summary>Why derive information from the filename?</summary>
+
+  The filename makes chronology and identity visible before opening the
+  document. It also avoids repeating the same information in two places.
+
+  The current prototype passes the filename to the factory explicitly. A later
+  generator will discover it automatically.
+</details>
+
+### Figure
+
+<figure>
+  <Image
+    src="/icons/springboot_icon.svg"
+    alt="Spring Boot logo"
+    width={128}
+    height={128}
+  />
+  <figcaption>
+    A figure combines meaningful alternative text with an optional visible
+    caption.
+  </figcaption>
+</figure>
+
+### Keyboard and interface notation
+
+Use <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> for a keyboard
+shortcut. Interface labels can be written as ordinary strong text, such as
+**TypeScript: Restart TS Server**.
+
+### Closing checkpoint
+
+If this entry renders successfully, the baseline supports:
+
+- Hierarchical prose
+- Japanese, Korean, and mixed-script text
+- CJK punctuation and Japanese ruby annotations
+- Inline technical notation
+- Lists and quotations
+- Semantic callouts
+- Fenced code blocks
+- Responsive tables
+- Definition lists
+- Expandable details
+- Captioned images
+
+The next task is to style these elements consistently inside `.mdx-content`.

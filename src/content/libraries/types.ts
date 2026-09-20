@@ -1,8 +1,14 @@
 import type { ReactNode } from "react";
 
-export type LibrarySectionDefinition = {
-  id: string;
+export type LibraryEntryMetadata = {
   title: string;
+  subtitle: string;
+  tags: string[];
+}
+
+export type LibraryEntryDefinition = LibraryEntryMetadata & {
+  id: string;
+  date: string;
   content: ReactNode;
 };
 
@@ -10,10 +16,5 @@ export type LibraryDefinition = {
   slug: string;
   title: string;
   summary: string;
-  sections: LibrarySectionDefinition[];
-};
-
-export type LibrarySectionMetadata = {
-  id: string;
-  title: string;
+  entries: LibraryEntryDefinition[];
 };

@@ -1,11 +1,11 @@
-import type { LibrarySectionDefinition } from "@/content/libraries/types";
+import type { LibraryEntryDefinition } from "@/content/libraries/types";
 
 type LibraryTocProps = {
-  sections: LibrarySectionDefinition[];
+  entries: LibraryEntryDefinition[];
 }
 
 export default function LibraryToc({
-  sections
+  entries
 }: LibraryTocProps) {
   return (
     <aside>
@@ -15,10 +15,10 @@ export default function LibraryToc({
         </h2>
 
         <ol>
-          {sections.map((section) => (
-            <li key={section.id}>
-              <a href={`#${section.id}`}>
-                {section.title}
+          {entries.map((entry) => (
+            <li key={entry.id}>
+              <a href={`#${entry.id}`}>
+                {entry.title}
               </a>
             </li>
           ))}
