@@ -1,3 +1,5 @@
+import { createLibrarySection } from "./createLibrarySection";
+import Overview, { metadata as overviewMetadata, } from "./springboot/overview.mdx";
 import { type LibraryDefinition } from "./types";
 
 export const springBootLibrary: LibraryDefinition = {
@@ -5,13 +7,11 @@ export const springBootLibrary: LibraryDefinition = {
   title: "Spring Boot",
   summary: "Notes on building Java backends with Spring Boot framework.",
   sections: [
-    {
-      id: "overview",
-      title: "Overview",
-      content: (
-        <p>Introductory notes go here.</p>
-      ),
-    },
+    createLibrarySection(
+      overviewMetadata,
+      <Overview />,
+      "springboot/overview.mdx",
+    ),
     {
       id: "project-notes",
       title: "Project Notes",

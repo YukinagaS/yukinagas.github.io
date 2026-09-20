@@ -12,3 +12,8 @@ export type LibraryDefinition = {
   summary: string;
   sections: LibrarySectionDefinition[];
 };
+
+export type LibrarySectionMetadata = {
+  id: string;
+  title: string;
+};
