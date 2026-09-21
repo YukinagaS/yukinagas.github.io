@@ -1,9 +1,7 @@
-import { springBootLibrary } from "./springboot";
-import type { LibraryDefinition } from "./types";
+import { generatedLibraries } from "./generated";
 
-export const libraries: LibraryDefinition[] = [
-  springBootLibrary,
-];
+
+export const libraries = generatedLibraries;
 
 export function getLibrary(slug: string) {
   return libraries.find(

@@ -1,0 +1,165 @@
+export const metadata = {
+  title: "The Input Sandbox",
+  subtitle: "Held input, event input, mouse input, and action mapping.",
+  tags: ["love2d", "lua", "input"],
+};
+
+Turn the moving room into an input laboratory with continuous movement,
+one-shot actions, mouse dragging, and a small action map that separates gameplay
+intent from physical keys.
+
+---
+
+### Learning goals
+
+- Distinguish continuous input from event input.
+- Use keyboard and mouse callbacks without scattering game logic among them.
+- Record interaction state when a drag begins.
+- Replace direct key checks with named actions.
+- Handle modifier keys and repeated key events deliberately.
+
+### Held state and discrete events
+
+Input poses two different questions: **is this control currently held?** and
+**did this control change state just now?** Movement normally needs the first;
+attacking once, opening a menu, or toggling a debug flag normally needs the
+second.
+
+Use `love.keyboard.isDown` during `love.update` for continuous controls. Use
+callbacks such as `love.keypressed`, `love.mousepressed`, and
+`love.mousereleased` for events that occur at a particular moment.
+
+```lua
+function love.keypressed(key, scancode, isrepeat)
+    local controlHeld =
+        love.keyboard.isDown("lctrl") or
+        love.keyboard.isDown("rctrl")
+
+    if key == "q" and controlHeld then
+        love.event.quit()
+    end
+
+    if key == "space" and not isrepeat then
+        attackRequested = true
+    end
+end
+```
+
+The `isrepeat` argument lets a one-shot action ignore operating-system key
+repeat while a text field can still accept repeated input. For typed characters,
+use `love.textinput(text)` rather than interpreting a key name as text.
+
+### Map actions instead of hardcoding controls
+
+An action map lets gameplay code ask whether `left` is held without knowing
+which key supplies that intent. This improves readability immediately and
+creates a path toward remapping or controller support.
+
+```lua
+local bindings = {
+    left  = { "left", "a" },
+    right = { "right", "d" },
+    up    = { "up", "w" },
+    down  = { "down", "s" },
+}
+
+local function held(action)
+    for _, key in ipairs(bindings[action] or {}) do
+        if love.keyboard.isDown(key) then
+            return true
+        end
+    end
+
+    return false
+end
+
+function love.update(dt)
+    local dx =
+        (held("right") and 1 or 0) -
+        (held("left") and 1 or 0)
+    local dy =
+        (held("down") and 1 or 0) -
+        (held("up") and 1 or 0)
+
+    player.x = player.x + dx * player.speed * dt
+    player.y = player.y + dy * player.speed * dt
+end
+```
+
+The action map is a definition and can be shared. Transient state such as
+`attackRequested` still needs an owner that clears it after the gameplay system
+consumes it.
+
+### Drag without snapping
+
+When a drag begins, record the difference between the mouse position and the
+rectangle origin. Reconstruct the rectangle position from the current mouse
+position minus that saved offset. This keeps the originally grabbed point under
+the cursor rather than snapping the rectangle’s corner to it.
+
+```lua
+local box = { x = 80, y = 50, w = 32, h = 24 }
+local dragging = false
+local dragDX, dragDY = 0, 0
+
+local function contains(rect, x, y)
+    return x >= rect.x and x < rect.x + rect.w
+       and y >= rect.y and y < rect.y + rect.h
+end
+
+function love.mousepressed(x, y, button)
+    if button == 1 and contains(box, x, y) then
+        dragging = true
+        dragDX = x - box.x
+        dragDY = y - box.y
+    end
+end
+
+function love.mousemoved(x, y)
+    if dragging then
+        box.x = x - dragDX
+        box.y = y - dragDY
+    end
+end
+
+function love.mousereleased(_, _, button)
+    if button == 1 then
+        dragging = false
+    end
+end
+
+function love.focus(focused)
+    if not focused then
+        dragging = false
+    end
+end
+```
+
+Mouse coordinates and object coordinates must describe the same space. In a
+room drawn at 3× scale, divide the window-space mouse coordinates by three
+before testing them against logical-room objects. A later camera adds more
+steps: remove the viewport offset, divide by display scale, and add the camera
+position.
+
+### Build sequence
+
+1. Display a short history of pressed keys.
+2. Retain movement through held input.
+3. Toggle a boolean with `flag = not flag` in `love.keypressed`.
+4. Create a draggable rectangle and store its drag offset.
+5. Cancel dragging when the button is released or the window loses focus.
+6. Add a modifier command such as Ctrl+Q.
+7. Replace direct movement checks with an action map.
+
+### Verify the result
+
+- Confirm that one press produces one discrete action while movement continues
+  for as long as its control is held.
+- Grab the rectangle near a corner and confirm that the same point remains
+  under the cursor.
+- Release outside the rectangle and switch away from the application during a
+  drag; both actions should end the drag.
+- Confirm that arrow keys and WASD share one movement implementation.
+
+<aside data-callout="tip" aria-label="Checkpoint challenge"><strong>Checkpoint challenge:</strong> Support complete arrow-key and WASD control schemes without duplicating the movement logic.</aside>
+

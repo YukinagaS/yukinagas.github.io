@@ -22,10 +22,13 @@ export type LibraryEntryDefinition = LibraryEntryMetadata & {
   content: ReactNode;
 };
 
-export type LibraryDefinition = {
-  slug: string;
+export type LibraryConfig = {
   theme: LibraryTheme;
   title: string;
   summary: string;
+}
+
+export type LibraryDefinition = LibraryConfig & {
+  slug: string;
   entries: LibraryEntryDefinition[];
 };

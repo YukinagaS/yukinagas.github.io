@@ -68,6 +68,12 @@
   --library-bg-lt: var(--color-neutral-lt);
   --library-txt-bdy: var(--color-neutral-xdk);
   --library-txt-sub: var(--color-neutral-md);
+  --library-tip-txt: var(--color-neutral-dk);
+  --library-tip-tab: var(--color-pink-dk);
+  --library-tip-bg: var(--color-pink-md);
+  --library-warn-txt: var(--color-purple-dk);
+  --library-warn-tab: var(--color-purple-dk);
+  --library-warn-bg: var(--color-purple-lt);
 }
 
 [data-theme="purple"] {
@@ -136,7 +142,7 @@ body {
   }
 
   .mdx-content > * + * {
-    @apply mt-4;
+    @apply mt-2;
   }
 
   .mdx-content > p {

@@ -28,7 +28,7 @@ export default function LibraryShell({
       </div>
 
       <article
-        className="bg-library-bg-lt pt-4 px-8 min-w-0 space-y-12 md:col-start-2 md:row-start-2"
+        className="bg-library-bg-lt py-4 px-8 min-w-0 space-y-12 md:col-start-2 md:row-start-2"
         aria-label={`${title} library content`}
       >
         {entries.map((entry) => (
