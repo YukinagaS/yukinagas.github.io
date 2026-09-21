@@ -104,11 +104,6 @@ looking like a warning or callout.
 
 ### Callouts
 
-<aside data-callout="note" aria-label="Note">
-  <strong>Note:</strong> A note supplies useful context that is not essential
-  to completing the surrounding procedure.
-</aside>
-
 <aside data-callout="tip" aria-label="Tip">
   <strong>Tip:</strong> Prefer a descriptive filename because its slug becomes
   the entry’s permanent section identifier.
@@ -117,11 +112,6 @@ looking like a warning or callout.
 <aside data-callout="warning" aria-label="Warning">
   <strong>Warning:</strong> Renaming a published entry changes its anchor unless
   the slug portion of the filename remains unchanged.
-</aside>
-
-<aside data-callout="important" aria-label="Important">
-  <strong>Important:</strong> Every entry must provide a title, subtitle, and
-  non-empty collection of tags.
 </aside>
 
 These callouts deliberately use native `aside` elements and `data-callout`
@@ -164,33 +154,39 @@ npm run build
 ```
 
 ### Tabular information
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Source</th>
-      <th scope="col">Responsibility</th>
-      <th scope="col">Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Filename</td>
-      <td>Date and stable ID</td>
-      <td><code>20260920-authoring-specimen.mdx</code></td>
-    </tr>
-    <tr>
-      <td>MDX metadata</td>
-      <td>Title, subtitle, and tags</td>
-      <td><code>metadata.tags</code></td>
-    </tr>
-    <tr>
-      <td>Library configuration</td>
-      <td>Library identity and visual theme</td>
-      <td><code>library.json</code></td>
-    </tr>
-  </tbody>
-</table>
+<div
+  className="table-scroll"
+  role="region"
+  aria-label="Library entry data sources"
+  tabIndex={0}
+>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Source</th>
+        <th scope="col">Responsibility</th>
+        <th scope="col">Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Filename</td>
+        <td>Date and stable ID</td>
+        <td><code>20260920-authoring-specimen.mdx</code></td>
+      </tr>
+      <tr>
+        <td>MDX metadata</td>
+        <td>Title, subtitle, and tags</td>
+        <td><code>metadata.tags</code></td>
+      </tr>
+      <tr>
+        <td>Library configuration</td>
+        <td>Library identity and visual theme</td>
+        <td><code>library.json</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 The table should remain readable on small screens. If it cannot fit, its own
 region should scroll horizontally rather than widening the entire page.

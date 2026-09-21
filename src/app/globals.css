@@ -37,6 +37,13 @@
   --color-library-bg-lt: var(--library-bg-lt);
   --color-library-txt-bdy: var(--library-txt-bdy);
   --color-library-txt-sub: var(--library-txt-sub);
+  --color-library-tip-txt: var(--library-tip-txt);
+  --color-library-tip-tab: var(--library-tip-tab);
+  --color-library-tip-bg: var(--library-tip-bg);
+  --color-library-warn-txt: var(--library-warn-txt);
+  --color-library-warn-tab: var(--library-warn-tab);
+  --color-library-warn-bg: var(--library-warn-bg);
+
 }
 
 [data-theme="green"] {
@@ -46,6 +53,12 @@
   --library-bg-lt: var(--color-neutral-lt);
   --library-txt-bdy: var(--color-warmblack);
   --library-txt-sub: var(--color-browncoal);
+  --library-tip-txt: var(--color-neutral-dk);
+  --library-tip-tab: var(--color-blue-md);
+  --library-tip-bg: var(--color-blue-lt);
+  --library-warn-txt: var(--color-pink-dk);
+  --library-warn-tab: var(--color-pink-dk);
+  --library-warn-bg: var(--color-pink-lt);
 }
 
 [data-theme="blue"] {
@@ -153,11 +166,11 @@ body {
   }
 
   /* Inline Typography */
-  .mdx-content > strong {
+  .mdx-content strong {
     @apply font-semibold text-library-accent-dk;
   }
 
-  .mdx-content > em {
+  .mdx-content em {
     @apply text-library-accent-md;
   }
 
@@ -189,5 +202,245 @@ body {
     ;
   }
 
+  /* Separators */
+  .mdx-content hr {
+    @apply my-12 border-0 border-t border-library-accent-dk;
+  }
+
+  /* Lists */
+
+  .mdx-content ul {
+    @apply list-disc pl-6;
+  }
+
+  .mdx-content ol {
+    @apply list-decimal pl-6;
+  }
+
+  .mdx-content li > ul,
+  .mdx-content li > ol {
+    @apply mt-2;
+  }
+
+  .mdx-content li::marker {
+    @apply font-semibold text-green-md;
+  }
+
+    /* Quotations */
+
+  .mdx-content blockquote {
+    @apply
+      border-l-4 border-library-accent-md
+      bg-library-accent-lt
+      px-5 py-4
+      text-library-txt-sub;
+  }
+
+  .mdx-content blockquote p {
+    @apply italic;
+  }
+
+  /* JA/KO Support */
+  .mdx-content :where([lang="ja"], [lang="ko"]) {
+    @apply text-base/relaxed;
+  }
+
+  .mdx-content [lang="ja"] {
+    @apply tracking-tight;
+  }
+
+  .mdx-content ruby {
+    @apply whitespace-nowrap;
+  }
+
+
+  /* Callouts */
+
+.mdx-content aside[data-callout] {
+  @apply
+    max-w-3xl
+    rounded-r-lg border-l-4
+    px-5 py-4
+    shadow-sm;
+}
+
+.mdx-content aside[data-callout] + aside[data-callout] {
+  @apply mt-3;
+}
+
+.mdx-content aside[data-callout] > strong {
+  @apply font-bold text-inherit;
+}
+
+.mdx-content aside[data-callout="tip"] {
+  @apply border-library-tip-tab bg-library-tip-bg text-library-tip-txt;
+}
+
+.mdx-content aside[data-callout="warning"] {
+  @apply border-library-warn-tab bg-library-warn-bg text-library-warn-txt;
+}
+
+/* Fenced code */
+
+.mdx-content pre {
+  @apply
+    max-w-full overflow-x-auto
+    rounded-lg border border-library-accent-dk
+    bg-neutral-xdk
+    p-5
+    shadow-sm;
+}
+
+.mdx-content pre code {
+  @apply
+    block min-w-max
+    whitespace-pre
+    border-0 bg-transparent p-0
+    font-mono text-sm/6 text-neutral-lt;
+}
+
+/* Tables */
+
+.mdx-content .table-scroll {
+  @apply
+    max-w-full overflow-x-auto
+    rounded-lg border border-library-accent-md
+    focus-visible:outline-2
+    focus-visible:outline-offset-4
+    focus-visible:outline-library-accent-md;
+}
+
+.mdx-content .table-scroll table {
+  @apply
+    w-full min-w-[40rem]
+    border-collapse
+    text-left text-sm;
+}
+
+.mdx-content .table-scroll th {
+  @apply
+    bg-library-accent-dk
+    px-4 py-3
+    font-semibold text-library-accent-lt;
+}
+
+.mdx-content .table-scroll td {
+  @apply
+    border-t border-library-accent-lt
+    px-4 py-3
+    align-top;
+}
+
+.mdx-content .table-scroll tbody tr:nth-child(even) {
+  @apply bg-library-accent-lt/40;
+}
+
+.mdx-content .table-scroll td code {
+  @apply whitespace-nowrap;
+}
+
+/* Definition lists */
+
+.mdx-content dl {
+  @apply
+    rounded-lg border border-library-accent-lt
+    bg-library-accent-lt/20
+    px-5 py-4;
+}
+
+.mdx-content dt {
+  @apply font-semibold text-library-accent-md;
+}
+
+.mdx-content dd {
+  @apply
+    mt-1 ml-0
+    border-l-2 border-library-accent-lt
+    pl-4
+    text-library-txt-sub;
+}
+
+.mdx-content dd + dt {
+  @apply mt-5;
+}
+
+/* Expandable details */
+
+.mdx-content details {
+  @apply
+    overflow-hidden
+    rounded-lg border border-library-accent-md
+    bg-library-accent-lt/20;
+}
+
+.mdx-content summary {
+  @apply
+    cursor-pointer select-none
+    bg-library-accent-lt/50
+    px-5 py-3
+    font-semibold text-library-accent-dk
+    transition-colors;
+}
+
+.mdx-content summary:hover {
+  @apply bg-library-accent-lt;
+}
+
+.mdx-content summary:focus-visible {
+  @apply
+    outline-2 outline-offset-[-2px]
+    outline-library-accent-md;
+}
+
+.mdx-content details[open] > summary {
+  @apply border-b border-library-accent-md;
+}
+
+.mdx-content details > p {
+  @apply px-5;
+}
+
+.mdx-content details > p:first-of-type {
+  @apply pt-4;
+}
+
+.mdx-content details > p:last-child {
+  @apply pb-4;
+}
+
+/* Figures */
+
+.mdx-content figure {
+  @apply
+    overflow-hidden
+    rounded-lg border border-library-accent-lt
+    bg-library-accent-lt/20
+    p-4;
+}
+
+.mdx-content figure img {
+  @apply mx-auto h-auto max-w-full rounded-md;
+}
+
+.mdx-content figcaption {
+  @apply
+    mt-3
+    text-center text-sm/6 italic
+    text-library-txt-sub;
+}
+
+/* Keyboard notation */
+
+.mdx-content kbd {
+  @apply
+    inline-flex min-w-6 items-center justify-center
+    rounded border border-library-accent-md
+    bg-library-accent-lt
+    px-1.5 py-0.5
+    align-middle
+    font-mono text-xs font-semibold leading-none
+    text-library-accent-dk
+    shadow-sm;
+}
 
 }
