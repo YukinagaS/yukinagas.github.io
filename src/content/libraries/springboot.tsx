@@ -4,6 +4,7 @@ import { type LibraryDefinition } from "./types";
 
 export const springBootLibrary: LibraryDefinition = {
   slug: "springboot",
+  theme: "green",
   title: "Spring Boot",
   summary: "Notes on building Java backends with Spring Boot framework.",
   entries: [

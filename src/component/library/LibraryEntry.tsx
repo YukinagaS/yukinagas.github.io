@@ -10,13 +10,27 @@ export default function LibraryEntry({
 }: LibraryEntryDefinition) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`}>
-      <header>
-        <time dateTime={date}>{date}</time>
-        <h2 id={`${id}-heading`}>{title}</h2>
-        <p>{subtitle}</p>
-        <ul aria-label="Tags">
+      <header className="text-library-txt-bdy">
+        <h2
+          id={`${id}-heading`}
+          className="my-1 text-4xl text-library-accent-md font-bold tracking-tight"
+        >
+          {title}
+        </h2>
+        <p className="mt-1 font-light">
+          {subtitle}
+        </p>
+        <time
+          dateTime={date}
+          className="text-sm font-extralight"
+        >
+          {date}
+        </time>
+        <ul aria-label="Tags" className="mt-2 flex flex-row">
           {tags.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li key={tag} className="mr-1.5 py-0.5 px-3 block rounded-2xl bg-neutral-md text-neutral-lt text-sm font-light">
+              {tag}
+            </li>
           ))}
         </ul>
       </header>

@@ -30,6 +30,40 @@
   --color-purple-lt: #d3bfc9;
   --color-purple-md: #925e78;
   --color-purple-dk: #2c1c24;
+
+  --color-library-accent-lt: var(--library-accent-lt);
+  --color-library-accent-md: var(--library-accent-md);
+  --color-library-accent-dk: var(--library-accent-dk);
+  --color-library-bg-lt: var(--library-bg-lt);
+  --color-library-txt-bdy: var(--library-txt-bdy);
+  --color-library-txt-sub: var(--library-txt-sub);
+}
+
+[data-theme="green"] {
+  --library-accent-lt: var(--color-green-lt);
+  --library-accent-md: var(--color-green-md);
+  --library-accent-dk: var(--color-green-dk);
+  --library-bg-lt: var(--color-neutral-lt);
+  --library-txt-bdy: var(--color-warmblack);
+  --library-txt-sub: var(--color-browncoal);
+}
+
+[data-theme="blue"] {
+  --library-accent-lt: var(--color-blue-lt);
+  --library-accent-md: var(--color-blue-md);
+  --library-accent-dk: var(--color-blue-dk);
+  --library-bg-lt: var(--color-neutral-lt);
+  --library-txt-bdy: var(--color-neutral-xdk);
+  --library-txt-sub: var(--color-neutral-md);
+}
+
+[data-theme="purple"] {
+  --library-accent-lt: var(--color-purple-lt);
+  --library-accent-md: var(--color-purple-md);
+  --library-accent-dk: var(--color-purple-dk);
+  --library-bg-lt: var(--color-neutral-lt);
+  --library-txt-bdy: var(--color-neutral-xdk);
+  --library-txt-sub: var(--color-browncoal);
 }
 
 * {
@@ -45,10 +79,12 @@ body {
   margin: 0;
 }
 
+/* ================= */
+/* Diagnostic Styles */
+/* ================= */
 .liner-red {
   @apply outline-1 outline-red-500
 }
-
 .liner-green {
   @apply outline-1 outline-green-500
 }
@@ -57,4 +93,87 @@ body {
 }
 .liner-yellow {
   @apply outline-1 outline-yellow-500
+}
+
+/* ================= */
+/* MDX Styles */
+/* ================= */
+@layer components {
+  .mdx-content {
+    @apply mt-8 wrap-break-word text-base leading-8 text-library-txt-bdy;
+  }
+
+  /* General Content Spacing */
+  .mdx-content > * {
+    @apply max-w-3xl;
+  }
+
+  .mdx-content > * + * {
+    @apply mt-4;
+  }
+
+  .mdx-content > p {
+    @apply text-base;
+  }
+
+  .mdx-content p + p {
+    @apply mt-3;
+  }
+
+  /* Headings */
+  .mdx-content > h3 {
+    @apply
+      mt-10
+      text-2xl text-library-accent-md font-bold
+      tracking-tight
+      border-b border-library-txt-sub
+    ;
+  }
+
+  .mdx-content > h4 {
+    @apply
+      mt-6
+      text-xl text-library-accent-md font-semibold
+      tracking-tight
+    ;
+  }
+
+  /* Inline Typography */
+  .mdx-content > strong {
+    @apply font-semibold text-library-accent-dk;
+  }
+
+  .mdx-content > em {
+    @apply text-library-accent-md;
+  }
+
+    .mdx-content a {
+    @apply
+      text-library-accent-md
+      underline decoration-library-accent-md underline-offset-4
+      transition-colors
+    ;
+  }
+
+  .mdx-content a:hover {
+    @apply text-library-accent-lt;
+  }
+
+  .mdx-content a:focus-visible {
+    @apply rounded-sm outline-2 outline-offset-4 outline-library-accent-lt;
+  }
+
+  .mdx-content abbr {
+    @apply cursor-help underline decoration-dotted underline-offset-4;
+  }
+
+  .mdx-content :not(pre) > code {
+    @apply
+      rounded border border-library-accent-lt bg-library-accent-lt
+      px-1.5 py-0.5
+      font-mono text-sm text-neutral-dk
+    ;
+  }
+
+
 }
