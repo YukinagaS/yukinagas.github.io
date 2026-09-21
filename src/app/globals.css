@@ -79,6 +79,20 @@ body {
   margin: 0;
 }
 
+.toc-pill {
+  @apply
+    inline-flex max-w-full flex-col
+    rounded-lg px-3 py-1
+    font-extralight text-library-accent-lt
+    transition-colors
+    hover:bg-library-accent-md
+    focus-visible:bg-library-accent-md
+    focus-visible:outline-2
+    focus-visible:outline-offset-2
+    focus-visible:outline-library-accent-lt
+  ;
+}
+
 /* ================= */
 /* Diagnostic Styles */
 /* ================= */

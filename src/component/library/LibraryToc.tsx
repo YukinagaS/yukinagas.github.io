@@ -10,14 +10,15 @@ export default function LibraryToc({
   return (
     <aside>
       <nav aria-labelledby="library-toc-heading">
-        <h2 id="library-toc-heading">
-          Contents
+        <h2 id="library-toc-heading" className="mb-2 font-semibold text-library-accent-lt text-sm">
+          CONTENTS
         </h2>
 
         <ol>
           {entries.map((entry) => (
             <li key={entry.id}>
-              <a href={`#${entry.id}`}>
+              <a href={`#${entry.id}`} className="toc-pill">
+                <span className="text-xs">{entry.date}</span>
                 {entry.title}
               </a>
             </li>
