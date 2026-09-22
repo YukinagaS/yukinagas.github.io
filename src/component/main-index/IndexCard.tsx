@@ -30,6 +30,7 @@ export type IndexCardProps = {
   icon: string;
   title: string;
   href: string;
+  note: string;
   theme: IndexCardTheme;
 };
 
@@ -37,6 +38,7 @@ export default function IndexCard({
   icon,
   title,
   href,
+  note,
   theme,
 }: IndexCardProps) {
   const colors = cardThemes[theme];
@@ -44,7 +46,7 @@ export default function IndexCard({
   return (
     <article>
       <Link
-        className={`group block rounded-lg px-3 py-2 outline-1 transition-colors ${colors.frame} ${colors.bg}`}
+        className={`group block rounded min-h-35 px-4 py-4 outline-1 transition-colors ${colors.frame} ${colors.bg}`}
         href={href}
       >
         <div className="flex items-center gap-2">
@@ -58,8 +60,9 @@ export default function IndexCard({
               className="object-contain"
             />
           </span>
-          <h3 className={`font-bold text-lg ${colors.title}`}>{title}</h3>
+          <h3 className={`font-normal text-2xl ${colors.title}`}>{title}</h3>
         </div>
+        <p className={`mt-2 text-sm ${colors.title}`}>{note}</p>
       </Link>
     </article>
   );

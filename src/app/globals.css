@@ -282,6 +282,7 @@ body {
 
 .mdx-content .table-scroll {
   @apply
+    mb-2
     max-w-full overflow-x-auto
     rounded-lg border border-mdx-main-md
     focus-visible:outline-2

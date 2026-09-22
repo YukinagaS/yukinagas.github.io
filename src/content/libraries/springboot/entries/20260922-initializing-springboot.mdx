@@ -1,0 +1,62 @@
+export const metadata = {
+  title: "Initializing a Spring Boot Project in VS Code",
+  subtitle: "Getting started by generating a Gradled-based project.",
+  tags: ["initialization", "backend"],
+};
+
+### Getting Started
+
+#### VS Code Extension - Spring Initializr
+
+1. Open VS Code extensions ( <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> ) and install <strong>Spring Initializr Java Support</strong>.
+2. Open Command Palette ( <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ) and select <strong>Spring Initializr: Create a Gradle Project</strong>.
+
+Upon launching, Spring Initializr will ask a sequence of questions. These notes will use the following configuration:
+<div
+  className="table-scroll"
+  role="region"
+  aria-label="Project Configuration"
+  tabIndex={0}
+>
+  <table>
+    <thead>
+      <th scope="col">Prompt</th>
+      <th scope="col">Selection</th>
+      <th scope="col">Notes</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Spring Boot Version</td>
+        <td><strong>4.1.1</strong></td>
+        <td>Spring Boot platform and managed dependency versions.</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td><strong>Java</strong></td>
+        <td>Source language used by application.</td>
+      </tr>
+      <tr>
+        <td>Project Name</td>
+        <td><strong>ご自由に</strong></td>
+        <td>Human-readable project and generated folder name. Such as `demo`.</td>
+      </tr>
+      <tr>
+        <td>Package Name</td>
+        <td><strong>同上</strong></td>
+        <td>Base Java package, such as `com.example.demo`. Should be lowercase</td>
+      </tr>
+      <tr>
+        <td>Packaging</td>
+        <td><strong>JAR</strong></td>
+        <td>Creates an executable JAR containing the application and embedded web server.</td>
+      </tr>
+      <tr>
+        <td>Java Version</td>
+        <td><strong>21</strong></td>
+        <td>Java language and runtime level used by the project.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<em>Some versions of VS Code Extension may prompt for <strong>Group ID</strong> and <strong>Artifact ID</strong> in place of Package Name and Project Name, respectively.</em>

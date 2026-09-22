@@ -10,7 +10,7 @@ export default function LibraryShell({
   entries
 }: LibraryDefinition) {
   return (
-    <main
+    <section
       data-theme={theme}
       className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 md:grid-cols-[16rem_minmax(0,1fr)] md:grid-rows-[auto_1fr]"
     >
@@ -38,6 +38,6 @@ export default function LibraryShell({
           />
         ))}
       </article>
-    </main>
+    </section>
   );
 }
