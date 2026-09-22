@@ -11,7 +11,7 @@ const THEME_NAME_PATTERN = /^[a-z][a-z0-9-]*$/;
 
   function isLibraryTheme(
     value: unknown
-  ): value is LibraryTheme {
+  ): value is string {
     return (
       typeof value === "string" &&
       THEME_NAME_PATTERN.test(value)
