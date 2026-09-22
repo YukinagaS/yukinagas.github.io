@@ -36,14 +36,19 @@ Upon launching, Spring Initializr will ask a sequence of questions. These notes 
         <td>Source language used by application.</td>
       </tr>
       <tr>
-        <td>Project Name</td>
+        <td>Group ID</td>
         <td><strong>ご自由に</strong></td>
-        <td>Human-readable project and generated folder name. Such as `demo`.</td>
+        <td>Base Java package, such as `com.example`. Should be lowercase</td>
       </tr>
       <tr>
-        <td>Package Name</td>
+        <td>Artifact ID</td>
         <td><strong>同上</strong></td>
-        <td>Base Java package, such as `com.example.demo`. Should be lowercase</td>
+        <td>Human-readable project and generated folder name. Such as `demo`, resulting in `com.example.demo`.</td>
+      </tr>
+      <tr>
+        <td>Package name</td>
+        <td><strong>同上</strong></td>
+        <td>Auto-fills to combo of above two (i.e. `com.example.demo`). Not sure why this is here.</td>
       </tr>
       <tr>
         <td>Packaging</td>
@@ -59,4 +64,107 @@ Upon launching, Spring Initializr will ask a sequence of questions. These notes 
   </table>
 </div>
 
-<em>Some versions of VS Code Extension may prompt for <strong>Group ID</strong> and <strong>Artifact ID</strong> in place of Package Name and Project Name, respectively.</em>
+#### Select Dependencies
+
+Select the following dependencies when the picker displays.
+
+<div
+  className="table-scroll"
+  role="region"
+  aria-label="Project Dependencies"
+  tabIndex={1}
+>
+  <table>
+    <thead>
+      <th scope="col">Dependency</th>
+      <th scope="col">Role</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Spring Boot Dev Tools</strong></td>
+        <td>Module that "enhances the developer experience" with auto restarts, etc.</td>
+      </tr>
+      <tr>
+        <td><strong>Spring Web</strong></td>
+        <td>Spring MVC, REST controller support, JSON handling, and the embedded web server.</td>
+      </tr>
+      <tr>
+        <td><strong>Lombok</strong></td>
+        <td>Generates getters, setters, constructors, and builders during compilation.</td>
+      </tr>
+      <tr>
+        <td><strong>Validation</strong></td>
+        <td>Adds "Bean" validation annotations like `NotNull`, `NotBlank`, and `Size`.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+After dependency selection, VS Code will prompt to select the folder into which it will generate the folder (named after the <strong>Artifact ID</strong>).
+
+<details>
+<summary>This is a good time to install the Tasks extension (<strong>Extension ID: </strong>`actboy168.tasks`) to make it easier to launch the backend. Create a `tasks.json` within the `.vscode` directory containing the launch and end commands for a gradle project. Expand this tip for a JSON containing commands for MacOS and Windows.</summary>
+  ```json
+  {
+    "version": "2.0.0",
+
+    // Configure the backend port here
+    "options": {
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "SERVER_PORT": "8080"
+      }
+    },
+
+    "tasks": [
+      {
+        "label": "$(debug-start) Start Backend",
+        "type": "process",
+
+        "osx": {
+          "command": "./gradlew",
+          "args": ["bootRun"]
+        },
+
+        "windows": {
+          "command": "cmd.exe",
+          "args": ["/d", "/c", "gradlew.bat", "bootRun"]
+        },
+
+        "problemMatcher": [],
+        "presentation": {
+          "panel": "dedicated"
+        }
+      },
+      {
+        "label": "$(debug-stop) Stop Backend",
+        "type": "process",
+
+        "osx": {
+          "command": "/bin/zsh",
+          "args": [
+            "-c",
+            "pids=$(lsof -nP -tiTCP:\"$SERVER_PORT\" -sTCP:LISTEN); if [ -n \"$pids\" ]; then printf '%s\\n' \"$pids\" | xargs kill -TERM; echo \"Backend on port $SERVER_PORT stopped\"; else echo \"Backend is not running on port $SERVER_PORT\"; fi"
+          ]
+        },
+
+        "windows": {
+          "command": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-NonInteractive",
+            "-Command",
+            "$port = [int]$env:SERVER_PORT; $connections = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue; if ($connections) { $processIds = $connections.OwningProcess | Sort-Object -Unique; $processIds | ForEach-Object { Stop-Process -Id $_ -ErrorAction SilentlyContinue }; Write-Host \"Backend on port $port stopped\" } else { Write-Host \"Backend is not running on port $port\" }"
+          ]
+        },
+
+        "problemMatcher": [],
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      }
+    ]
+  }
+  ```
+</details>
