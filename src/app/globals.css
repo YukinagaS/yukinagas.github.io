@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/themes.css";
 
 @theme inline {
   --color-eggshell: #F0EAD6;
@@ -31,58 +32,30 @@
   --color-purple-md: #925e78;
   --color-purple-dk: #2c1c24;
 
-  --color-library-accent-lt: var(--library-accent-lt);
-  --color-library-accent-md: var(--library-accent-md);
-  --color-library-accent-dk: var(--library-accent-dk);
-  --color-library-bg-lt: var(--library-bg-lt);
-  --color-library-txt-bdy: var(--library-txt-bdy);
-  --color-library-txt-sub: var(--library-txt-sub);
-  --color-library-tip-txt: var(--library-tip-txt);
-  --color-library-tip-tab: var(--library-tip-tab);
-  --color-library-tip-bg: var(--library-tip-bg);
-  --color-library-warn-txt: var(--library-warn-txt);
-  --color-library-warn-tab: var(--library-warn-tab);
-  --color-library-warn-bg: var(--library-warn-bg);
+  /* Theme Color Variables */
+  --color-mdx-main-lt: var(--mdx-main-lt);
+  --color-mdx-main-md: var(--mdx-main-md);
+  --color-mdx-main-dk: var(--mdx-main-dk);
 
-}
+  --color-mdx-accent-lt: var(--mdx-accent-lt);
+  --color-mdx-accent-md: var(--mdx-accent-md);
+  --color-mdx-accent-dk: var(--mdx-accent-dk);
 
-[data-theme="green"] {
-  --library-accent-lt: var(--color-green-lt);
-  --library-accent-md: var(--color-green-md);
-  --library-accent-dk: var(--color-green-dk);
-  --library-bg-lt: var(--color-neutral-lt);
-  --library-txt-bdy: var(--color-warmblack);
-  --library-txt-sub: var(--color-browncoal);
-  --library-tip-txt: var(--color-neutral-dk);
-  --library-tip-tab: var(--color-blue-md);
-  --library-tip-bg: var(--color-blue-lt);
-  --library-warn-txt: var(--color-pink-dk);
-  --library-warn-tab: var(--color-pink-dk);
-  --library-warn-bg: var(--color-pink-lt);
-}
+  --color-mdx-bg-main: var(--mdx-bg-main);
+  --color-mdx-bg-side: var(--mdx-bg-side);
 
-[data-theme="blue"] {
-  --library-accent-lt: var(--color-blue-lt);
-  --library-accent-md: var(--color-blue-md);
-  --library-accent-dk: var(--color-blue-dk);
-  --library-bg-lt: var(--color-neutral-lt);
-  --library-txt-bdy: var(--color-neutral-xdk);
-  --library-txt-sub: var(--color-neutral-md);
-  --library-tip-txt: var(--color-neutral-dk);
-  --library-tip-tab: var(--color-pink-dk);
-  --library-tip-bg: var(--color-pink-md);
-  --library-warn-txt: var(--color-purple-dk);
-  --library-warn-tab: var(--color-purple-dk);
-  --library-warn-bg: var(--color-purple-lt);
-}
+  --color-mdx-txt-lt: var(--mdx-txt-lt);
+  --color-mdx-txt-md: var(--mdx-txt-md);
+  --color-mdx-txt-dk: var(--mdx-txt-dk);
 
-[data-theme="purple"] {
-  --library-accent-lt: var(--color-purple-lt);
-  --library-accent-md: var(--color-purple-md);
-  --library-accent-dk: var(--color-purple-dk);
-  --library-bg-lt: var(--color-neutral-lt);
-  --library-txt-bdy: var(--color-neutral-xdk);
-  --library-txt-sub: var(--color-browncoal);
+  --color-mdx-tip-txt: var(--mdx-tip-txt);
+  --color-mdx-tip-bg: var(--mdx-tip-bg);
+  --color-mdx-tip-tab: var(--mdx-tip-tab);
+
+  --color-mdx-warn-txt: var(--mdx-warn-txt);
+  --color-mdx-warn-bg: var(--mdx-warn-bg);
+  --color-mdx-warn-tab: var(--mdx-warn-tab);
+
 }
 
 * {
@@ -102,13 +75,13 @@ body {
   @apply
     inline-flex max-w-full flex-col
     rounded-lg px-3 py-1
-    font-extralight text-library-accent-lt
+    font-extralight text-mdx-txt-lt
     transition-colors
-    hover:bg-library-accent-md
-    focus-visible:bg-library-accent-md
+    hover:bg-mdx-accent-md
+    focus-visible:bg-mdx-accent-md
     focus-visible:outline-2
     focus-visible:outline-offset-2
-    focus-visible:outline-library-accent-lt
+    focus-visible:outline-mdx-accent-lt
   ;
 }
 
@@ -133,7 +106,7 @@ body {
 /* ================= */
 @layer components {
   .mdx-content {
-    @apply mt-8 wrap-break-word text-base leading-8 text-library-txt-bdy;
+    @apply mt-8 wrap-break-word text-base leading-8 text-mdx-txt-dk;
   }
 
   /* General Content Spacing */
@@ -157,43 +130,43 @@ body {
   .mdx-content > h3 {
     @apply
       mt-10
-      text-2xl text-library-accent-md font-bold
+      text-2xl text-mdx-main-md font-bold
       tracking-tight
-      border-b border-library-txt-sub
+      border-b border-mdx-txt-md
     ;
   }
 
   .mdx-content > h4 {
     @apply
       mt-6
-      text-xl text-library-accent-md font-semibold
+      text-xl text-mdx-main-md font-semibold
       tracking-tight
     ;
   }
 
   /* Inline Typography */
   .mdx-content strong {
-    @apply font-semibold text-library-accent-dk;
+    @apply font-semibold text-mdx-main-dk;
   }
 
   .mdx-content em {
-    @apply text-library-accent-md;
+    @apply text-mdx-main-md;
   }
 
     .mdx-content a {
     @apply
-      text-library-accent-md
-      underline decoration-library-accent-md underline-offset-4
+      text-mdx-main-md
+      underline decoration-mdx-main-md underline-offset-4
       transition-colors
     ;
   }
 
   .mdx-content a:hover {
-    @apply text-library-accent-lt;
+    @apply text-mdx-main-lt;
   }
 
   .mdx-content a:focus-visible {
-    @apply rounded-sm outline-2 outline-offset-4 outline-library-accent-lt;
+    @apply rounded-sm outline-2 outline-offset-4 outline-mdx-main-lt;
   }
 
   .mdx-content abbr {
@@ -202,7 +175,7 @@ body {
 
   .mdx-content :not(pre) > code {
     @apply
-      rounded border border-library-accent-lt bg-library-accent-lt
+      rounded bg-mdx-accent-lt
       px-1.5 py-0.5
       font-mono text-sm text-neutral-dk
     ;
@@ -210,7 +183,7 @@ body {
 
   /* Separators */
   .mdx-content hr {
-    @apply my-12 border-0 border-t border-library-accent-dk;
+    @apply my-12 border-0 border-t border-mdx-main-dk;
   }
 
   /* Lists */
@@ -229,17 +202,17 @@ body {
   }
 
   .mdx-content li::marker {
-    @apply font-semibold text-green-md;
+    @apply font-semibold text-mdx-main-md;
   }
 
     /* Quotations */
 
   .mdx-content blockquote {
     @apply
-      border-l-4 border-library-accent-md
-      bg-library-accent-lt
+      border-l-4 border-mdx-main-md
+      bg-mdx-main-lt
       px-5 py-4
-      text-library-txt-sub;
+      text-mdx-txt-md;
   }
 
   .mdx-content blockquote p {
@@ -274,16 +247,16 @@ body {
   @apply mt-3;
 }
 
-.mdx-content aside[data-callout] > strong {
-  @apply font-bold text-inherit;
+.mdx-content aside[data-callout] strong {
+  @apply font-semibold text-mdx-txt-dk;
 }
 
 .mdx-content aside[data-callout="tip"] {
-  @apply border-library-tip-tab bg-library-tip-bg text-library-tip-txt;
+  @apply border-mdx-tip-tab bg-mdx-tip-bg text-mdx-txt-dk;
 }
 
 .mdx-content aside[data-callout="warning"] {
-  @apply border-library-warn-tab bg-library-warn-bg text-library-warn-txt;
+  @apply border-mdx-warn-tab bg-mdx-warn-bg text-mdx-txt-dk;
 }
 
 /* Fenced code */
@@ -291,7 +264,7 @@ body {
 .mdx-content pre {
   @apply
     max-w-full overflow-x-auto
-    rounded-lg border border-library-accent-dk
+    rounded-lg border border-mdx-main-dk
     bg-neutral-xdk
     p-5
     shadow-sm;
@@ -310,10 +283,10 @@ body {
 .mdx-content .table-scroll {
   @apply
     max-w-full overflow-x-auto
-    rounded-lg border border-library-accent-md
+    rounded-lg border border-mdx-main-md
     focus-visible:outline-2
     focus-visible:outline-offset-4
-    focus-visible:outline-library-accent-md;
+    focus-visible:outline-mdx-main-md;
 }
 
 .mdx-content .table-scroll table {
@@ -325,20 +298,20 @@ body {
 
 .mdx-content .table-scroll th {
   @apply
-    bg-library-accent-dk
+    bg-mdx-main-dk
     px-4 py-3
-    font-semibold text-library-accent-lt;
+    font-semibold text-mdx-txt-lt;
 }
 
 .mdx-content .table-scroll td {
   @apply
-    border-t border-library-accent-lt
+    border-t border-mdx-main-lt
     px-4 py-3
     align-top;
 }
 
 .mdx-content .table-scroll tbody tr:nth-child(even) {
-  @apply bg-library-accent-lt/40;
+  @apply bg-mdx-main-lt/40;
 }
 
 .mdx-content .table-scroll td code {
@@ -349,21 +322,21 @@ body {
 
 .mdx-content dl {
   @apply
-    rounded-lg border border-library-accent-lt
-    bg-library-accent-lt/20
+    rounded-lg border border-mdx-main-lt
+    bg-mdx-main-lt/20
     px-5 py-4;
 }
 
 .mdx-content dt {
-  @apply font-semibold text-library-accent-md;
+  @apply font-semibold text-mdx-main-md;
 }
 
 .mdx-content dd {
   @apply
     mt-1 ml-0
-    border-l-2 border-library-accent-lt
+    border-l-2 border-mdx-main-lt
     pl-4
-    text-library-txt-sub;
+    text-mdx-txt-md;
 }
 
 .mdx-content dd + dt {
@@ -375,31 +348,31 @@ body {
 .mdx-content details {
   @apply
     overflow-hidden
-    rounded-lg border border-library-accent-md
-    bg-library-accent-lt/20;
+    rounded-lg border border-mdx-main-md
+    bg-mdx-main-lt/20;
 }
 
 .mdx-content summary {
   @apply
     cursor-pointer select-none
-    bg-library-accent-lt/50
+    bg-mdx-main-lt/50
     px-5 py-3
-    font-semibold text-library-accent-dk
+    font-semibold text-mdx-main-dk
     transition-colors;
 }
 
 .mdx-content summary:hover {
-  @apply bg-library-accent-lt;
+  @apply bg-mdx-main-lt;
 }
 
 .mdx-content summary:focus-visible {
   @apply
     outline-2 outline-offset-[-2px]
-    outline-library-accent-md;
+    outline-mdx-main-md;
 }
 
 .mdx-content details[open] > summary {
-  @apply border-b border-library-accent-md;
+  @apply border-b border-mdx-main-md;
 }
 
 .mdx-content details > p {
@@ -419,8 +392,8 @@ body {
 .mdx-content figure {
   @apply
     overflow-hidden
-    rounded-lg border border-library-accent-lt
-    bg-library-accent-lt/20
+    rounded-lg border border-mdx-main-lt
+    bg-mdx-main-lt/20
     p-4;
 }
 
@@ -432,7 +405,7 @@ body {
   @apply
     mt-3
     text-center text-sm/6 italic
-    text-library-txt-sub;
+    text-mdx-txt-md;
 }
 
 /* Keyboard notation */
@@ -440,12 +413,12 @@ body {
 .mdx-content kbd {
   @apply
     inline-flex min-w-6 items-center justify-center
-    rounded border border-library-accent-md
-    bg-library-accent-lt
+    rounded border border-mdx-main-md
+    bg-mdx-main-lt
     px-1.5 py-0.5
     align-middle
     font-mono text-xs font-semibold leading-none
-    text-library-accent-dk
+    text-mdx-main-dk
     shadow-sm;
 }
 

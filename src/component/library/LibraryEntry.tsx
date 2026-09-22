@@ -10,10 +10,10 @@ export default function LibraryEntry({
 }: LibraryEntryDefinition) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`}>
-      <header className="text-library-txt-bdy">
+      <header className="text-mdx-txt-dk">
         <h2
           id={`${id}-heading`}
-          className="my-1 text-4xl text-library-accent-md font-bold tracking-tight"
+          className="my-1 text-4xl text-mdx-main-md font-bold tracking-tight"
         >
           {title}
         </h2>

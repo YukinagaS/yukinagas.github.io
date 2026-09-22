@@ -1,20 +1,20 @@
 import {
-  libraryThemes,
   type LibraryConfig,
   type LibraryDefinition,
   type LibraryEntryDefinition,
-  type LibraryTheme,
 } from "./types";
 
 const LIBRARY_SLUG_PATTERN =
   /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+const THEME_NAME_PATTERN = /^[a-z][a-z0-9-]*$/;
 
   function isLibraryTheme(
     value: unknown
   ): value is LibraryTheme {
     return (
       typeof value === "string" &&
-      (libraryThemes as readonly string[]).includes(value)
+      THEME_NAME_PATTERN.test(value)
     );
   }
 

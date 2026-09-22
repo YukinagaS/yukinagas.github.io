@@ -1,7 +1,20 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
-const withMDX = createMDX({});
+const withMDX = createMDX({
+  options: {
+    rehypePlugins: [
+      [
+        "rehype-pretty-code",
+        {
+          theme: "dark-plus",
+          keepBackground: false,
+          bypassInlineCode: true,
+        },
+      ],
+    ],
+  },
+});
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],

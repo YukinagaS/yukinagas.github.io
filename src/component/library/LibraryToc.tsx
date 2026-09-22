@@ -10,7 +10,7 @@ export default function LibraryToc({
   return (
     <aside>
       <nav aria-labelledby="library-toc-heading">
-        <h2 id="library-toc-heading" className="mb-2 font-semibold text-library-accent-lt text-sm">
+        <h2 id="library-toc-heading" className="mb-2 font-semibold text-mdx-accent-lt text-sm">
           CONTENTS
         </h2>
 
