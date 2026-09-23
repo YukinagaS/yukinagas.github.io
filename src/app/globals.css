@@ -275,7 +275,7 @@ body {
     block min-w-max
     whitespace-pre
     border-0 bg-transparent p-0
-    font-mono text-sm/6 text-neutral-lt;
+    font-mono text-xs/6 md:text-sm/6 text-neutral-lt;
 }
 
 /* Tables */
