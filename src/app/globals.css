@@ -106,16 +106,21 @@ body {
 /* ================= */
 @layer components {
   .mdx-content {
-    @apply mt-8 wrap-break-word text-base leading-8 text-mdx-txt-dk;
+    @apply 
+      mt-8 pb-12 
+      wrap-break-word text-base 
+      leading-8 text-mdx-txt-dk 
+      border-b border-neutral-dk
+    ;
   }
 
   /* General Content Spacing */
   .mdx-content > * {
-    @apply max-w-3xl;
+    @apply max-w-5xl;
   }
 
   .mdx-content > * + * {
-    @apply mt-2;
+    @apply mt-6;
   }
 
   .mdx-content > p {
@@ -394,8 +399,9 @@ body {
   @apply
     overflow-hidden
     rounded-lg border border-mdx-main-lt
-    bg-mdx-main-lt/20
-    p-4;
+    bg-neutral-md/20
+    p-2
+  ;
 }
 
 .mdx-content figure img {

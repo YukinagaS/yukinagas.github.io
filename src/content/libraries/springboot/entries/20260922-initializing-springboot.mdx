@@ -20,9 +20,11 @@ Upon launching, Spring Initializr will ask a sequence of questions. These notes 
 >
   <table>
     <thead>
-      <th scope="col">Prompt</th>
-      <th scope="col">Selection</th>
-      <th scope="col">Notes</th>
+      <tr>
+        <th scope="col">Prompt</th>
+        <th scope="col">Selection</th>
+        <th scope="col">Notes</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -76,8 +78,10 @@ Select the following dependencies when the picker displays.
 >
   <table>
     <thead>
-      <th scope="col">Dependency</th>
-      <th scope="col">Role</th>
+      <tr>
+        <th scope="col">Dependency</th>
+        <th scope="col">Role</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -101,6 +105,23 @@ Select the following dependencies when the picker displays.
 </div>
 
 After dependency selection, VS Code will prompt to select the folder into which it will generate the folder (named after the <strong>Artifact ID</strong>).
+
+Spring Boot's Gradle plugin manages versions for dependencies within the `build.gradle` file at the root of the project. Upon project initialization, the file should look like the below. Expect to add to this as features are implemented later.
+
+```java
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+	testCompileOnly 'org.projectlombok:lombok'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+}
+```
 
 <details>
 <summary>This is a good time to install the Tasks extension (<strong>Extension ID: </strong>`actboy168.tasks`) to make it easier to launch the backend. Create a `tasks.json` within the `.vscode` directory containing the launch and end commands for a gradle project. Expand this tip for a JSON containing commands for MacOS and Windows.</summary>

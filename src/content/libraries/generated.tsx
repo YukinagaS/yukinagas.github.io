@@ -13,6 +13,7 @@ import Entry0_0, { metadata as entryMetadata0_0 } from "./love2d/entries/2030123
 
 import libraryConfig1 from "./springboot/library.json";
 import Entry1_0, { metadata as entryMetadata1_0 } from "./springboot/entries/20260922-initializing-springboot.mdx";
+import Entry1_1, { metadata as entryMetadata1_1 } from "./springboot/entries/20260923-rest-controller.mdx";
 
 export const generatedLibraries = [
   createLibrary(
@@ -34,6 +35,11 @@ export const generatedLibraries = [
         "20260922-initializing-springboot.mdx",
         entryMetadata1_0,
         <Entry1_0 />,
+      ),
+      createLibraryEntry(
+        "20260923-rest-controller.mdx",
+        entryMetadata1_1,
+        <Entry1_1 />,
       ),
     ],
   ),
